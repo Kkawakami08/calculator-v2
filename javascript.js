@@ -1,5 +1,6 @@
-let a = 0;
-let b = 0;
+let a = "";
+
+let b;
 let result = 0;
 
 const add = function (a, b) {
@@ -56,7 +57,6 @@ const operate = function (operator, a, b) {
 };
 
 const sevenBtn = document.getElementById("seven");
-sevenBtn.value = 7;
 const eightBtn = document.getElementById("eight");
 const nineBtn = document.getElementById("nine");
 const fourBtn = document.getElementById("four");
@@ -67,6 +67,41 @@ const twoBtn = document.getElementById("two");
 const threeBtn = document.getElementById("three");
 const zeroBtn = document.getElementById("zero");
 
+sevenBtn.value = 7;
+eightBtn.value = 8;
+nineBtn.value = 9;
+fourBtn.value = 4;
+fiveBtn.value = 5;
+sixBtn.value = 6;
+oneBtn.value = 1;
+twoBtn.value = 2;
+threeBtn.value = 3;
+zeroBtn.value = 0;
+
+sevenBtn.addEventListener("click", store);
+eightBtn.addEventListener("click", store);
+nineBtn.addEventListener("click", store);
+fourBtn.addEventListener("click", store);
+fiveBtn.addEventListener("click", store);
+sixBtn.addEventListener("click", store);
+oneBtn.addEventListener("click", store);
+twoBtn.addEventListener("click", store);
+threeBtn.addEventListener("click", store);
+zeroBtn.addEventListener("click", store);
+
+function store(e) {
+  let numberString = e.target.value.toString();
+  a += numberString;
+  console.log(a);
+  // a += e.target.value;
+  // console.log(a);
+  display(e);
+}
+
+function display(e) {
+  screenText.textContent = a;
+}
+
 const addBtn = document.getElementById("add");
 const subBtn = document.getElementById("sub");
 const multBtn = document.getElementById("mult");
@@ -75,9 +110,3 @@ const clearBtn = document.getElementById("clear");
 const equalBtn = document.getElementById("equal");
 
 const screenText = document.getElementById("screenDisplay");
-
-sevenBtn.addEventListener("click", display);
-
-function display(e) {
-  screenText.textContent = e.target.value;
-}
