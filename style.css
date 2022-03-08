@@ -46,6 +46,10 @@ body {
   width: 60%;
 }
 
+.digit:hover {
+  background-color: rgb(197, 197, 197);
+}
+
 .digit {
   background-color: rgb(235, 235, 235);
   width: 70px;
@@ -57,6 +61,23 @@ body {
   align-items: center;
   border-radius: 10px;
   font-size: 2em;
+}
+#add:hover {
+  background-color: rgb(209, 209, 4);
+}
+
+#clear:hover {
+  background-color: rgb(214, 0, 0);
+}
+
+#equal:hover {
+  background-color: rgb(202, 143, 153);
+}
+
+#sub:hover,
+#mult:hover,
+#divide:hover {
+  background-color: rgb(197, 197, 197);
 }
 
 #add,

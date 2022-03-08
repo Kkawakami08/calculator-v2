@@ -60,6 +60,12 @@ equalBtn.addEventListener("click", finalOperator);
 clearBtn.addEventListener("click", clear);
 
 //functions
+function defaultValues() {
+  a = "";
+  b = "";
+  operatorSign = "";
+}
+
 const add = function (a, b) {
   result = a + b;
   result = Math.round(result * 100) / 100;
@@ -83,12 +89,6 @@ const divide = function (a, b) {
   result = Math.round(result * 100) / 100;
   return result;
 };
-
-function defaultValues() {
-  a = "";
-  b = "";
-  operatorSign = "";
-}
 
 const operate = function (a, b, operatorSign) {
   if (operatorSign === "+") {
