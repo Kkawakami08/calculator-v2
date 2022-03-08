@@ -152,7 +152,7 @@ function finalOperator(e) {
   operate(a, b, operatorSign);
   console.log(a);
   console.log(b);
-  a = "";
+  a = result;
   b = "";
   operatorSign = "";
   console.log(a);
