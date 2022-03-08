@@ -2,8 +2,6 @@ let a = "";
 
 let b = "";
 let result = 0;
-console.log(a);
-console.log(b);
 
 const add = function (a, b) {
   result = a + b;
@@ -14,12 +12,6 @@ const subtract = function (a, b) {
   result = a - b;
   return result;
 };
-
-// const sum = function (c) {
-//   let result = 0;
-//   c.forEach((item) => (result += item));
-//   return result;
-// };
 
 const multiply = function (a, b) {
   result = a * b;
@@ -55,8 +47,15 @@ const operate = function (a, b, operatorSign) {
     multiply(a, b);
     screenText.textContent = result;
   } else if (operatorSign === "/") {
-    divide(a, b);
-    screenText.textContent = result;
+    if (b === 0) {
+      screenText.textContent = "ERROR";
+      a = "";
+      b = "";
+      operatorSign = "";
+    } else {
+      divide(a, b);
+      screenText.textContent = result;
+    }
   }
 };
 
@@ -99,25 +98,19 @@ function store(e) {
       a = "";
       let numberString = e.target.value.toString();
       a += numberString;
-      console.log(a);
-      // a += e.target.value;
-      // console.log(a);
       displayA(e);
+      console.log(`A from anew = ${a}`);
     } else {
       let numberString = e.target.value.toString();
       a += numberString;
-      console.log(a);
-      // a += e.target.value;
-      // console.log(a);
       displayA(e);
+      console.log(`A from result =${a}`);
     }
   } else if (operatorSign !== "") {
     let numberString = e.target.value.toString();
     b += numberString;
-    console.log(b);
-    // a += e.target.value;
-    // console.log(a);
     displayB(e);
+    console.log(`B = ${b}`);
   }
 }
 
@@ -140,8 +133,6 @@ addBtn.value = "+";
 subBtn.value = "-";
 multBtn.value = "*";
 divideBtn.value = "/";
-clearBtn.value = "clear";
-equalBtn.value = "equal";
 
 addBtn.addEventListener("click", storeOperator);
 subBtn.addEventListener("click", storeOperator);
@@ -149,6 +140,7 @@ multBtn.addEventListener("click", storeOperator);
 divideBtn.addEventListener("click", storeOperator);
 
 let operatorSign = "";
+
 console.log(operatorSign);
 
 function storeOperator(e) {
@@ -161,16 +153,21 @@ function storeOperator(e) {
 equalBtn.addEventListener("click", finalOperator);
 
 function finalOperator(e) {
-  b = Number(b);
-  operate(a, b, operatorSign);
-  console.log(a);
-  console.log(b);
-  a = result;
-  b = "";
-  operatorSign = "";
-  console.log(a);
-  console.log(b);
-  console.log(operatorSign);
+  if (operatorSign === "") {
+    screenText.textContent = "ERROR";
+    a = "";
+  } else {
+    b = Number(b);
+    operate(a, b, operatorSign);
+    console.log(a);
+    console.log(b);
+    a = result;
+    b = "";
+    operatorSign = "";
+    console.log(a);
+    console.log(b);
+    console.log(operatorSign);
+  }
 }
 
 clearBtn.addEventListener("click", clear);
