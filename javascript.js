@@ -5,26 +5,31 @@ let result = 0;
 
 const add = function (a, b) {
   result = a + b;
+  result = Math.round(result * 100) / 100;
   return result;
 };
 
 const subtract = function (a, b) {
   result = a - b;
+  result = Math.round(result * 100) / 100;
   return result;
 };
 
 const multiply = function (a, b) {
   result = a * b;
+  result = Math.round(result * 100) / 100;
   return result;
 };
 
 const divide = function (a, b) {
   result = a / b;
+  result = Math.round(result * 100) / 100;
   return result;
 };
 
 const power = function (a, b) {
   result = a ** b;
+  result = Math.round(result * 100) / 100;
   return result;
 };
 
@@ -33,6 +38,7 @@ const factorial = function (a) {
   for (let i = 1; i <= a; i++) {
     result *= i;
   }
+  result = Math.round(result * 100) / 100;
   return result;
 };
 
