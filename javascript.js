@@ -93,12 +93,22 @@ zeroBtn.addEventListener("click", store);
 
 function store(e) {
   if (operatorSign === "") {
-    let numberString = e.target.value.toString();
-    a += numberString;
-    console.log(a);
-    // a += e.target.value;
-    // console.log(a);
-    displayA(e);
+    if (a === "") {
+      let numberString = e.target.value.toString();
+      a += numberString;
+      console.log(a);
+      // a += e.target.value;
+      // console.log(a);
+      displayA(e);
+    } else if (a !== "") {
+      a = "";
+      let numberString = e.target.value.toString();
+      a += numberString;
+      console.log(a);
+      // a += e.target.value;
+      // console.log(a);
+      displayA(e);
+    }
   } else if (operatorSign !== "") {
     let numberString = e.target.value.toString();
     b += numberString;
