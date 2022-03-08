@@ -84,20 +84,11 @@ const divide = function (a, b) {
   return result;
 };
 
-const power = function (a, b) {
-  result = a ** b;
-  result = Math.round(result * 100) / 100;
-  return result;
-};
-
-const factorial = function (a) {
-  result = 1;
-  for (let i = 1; i <= a; i++) {
-    result *= i;
-  }
-  result = Math.round(result * 100) / 100;
-  return result;
-};
+function defaultValues() {
+  a = "";
+  b = "";
+  operatorSign = "";
+}
 
 const operate = function (a, b, operatorSign) {
   if (operatorSign === "+") {
@@ -112,9 +103,7 @@ const operate = function (a, b, operatorSign) {
   } else if (operatorSign === "/") {
     if (b === 0) {
       screenText.textContent = "ERROR";
-      a = "";
-      b = "";
-      operatorSign = "";
+      defaultValues();
     } else {
       divide(a, b);
       screenText.textContent = result;
@@ -178,9 +167,6 @@ function finalOperator(e) {
 }
 
 function clear(e) {
-  a = "";
-  b = "";
-  operatorSign = "";
   screenText.textContent = 0;
-  console.log(a);
+  defaultValues();
 }
