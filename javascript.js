@@ -42,18 +42,18 @@ const factorial = function (a) {
   return result;
 };
 
-let operator = "";
-
-const operate = function (operator, a, b) {
-  if (operator === "add") {
-    return (result = add(a, b));
-  } else if (operator === "subtract") {
-    return (result = subtract(a, b));
-  } else if (operator === "multiply") {
-    return (result = multiply(a, b));
-  } else if (operator === "divide") {
-    return (result = divide(a, b));
+const operate = function (a, b, operatorSign) {
+  if (operatorSign === "+") {
+    add(a, b);
+    screenText.textContent = result;
   }
+  // } else if (operator === "subtract") {
+  //   return (result = subtract(a, b));
+  // } else if (operator === "multiply") {
+  //   return (result = multiply(a, b));
+  // } else if (operator === "divide") {
+  //   return (result = divide(a, b));
+  // }
 };
 
 const sevenBtn = document.getElementById("seven");
@@ -133,8 +133,6 @@ addBtn.addEventListener("click", storeOperator);
 subBtn.addEventListener("click", storeOperator);
 multBtn.addEventListener("click", storeOperator);
 divideBtn.addEventListener("click", storeOperator);
-clearBtn.addEventListener("click", storeOperator);
-equalBtn.addEventListener("click", storeOperator);
 
 let operatorSign = "";
 
@@ -142,6 +140,14 @@ function storeOperator(e) {
   operatorSign = e.target.value;
   a = Number(a);
   screenText.textContent = operatorSign;
+}
+
+clearBtn.addEventListener("click", finalOperator);
+equalBtn.addEventListener("click", finalOperator);
+
+function finalOperator(e) {
+  b = Number(b);
+  operate(a, b, operatorSign);
 }
 
 const screenText = document.getElementById("screenDisplay");
