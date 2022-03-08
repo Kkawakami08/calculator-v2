@@ -1,8 +1,65 @@
+//variables
 let a = "";
-
 let b = "";
 let result = 0;
+let operatorSign = "";
 
+const screenText = document.getElementById("screenDisplay");
+
+const sevenBtn = document.getElementById("seven");
+const eightBtn = document.getElementById("eight");
+const nineBtn = document.getElementById("nine");
+const fourBtn = document.getElementById("four");
+const fiveBtn = document.getElementById("five");
+const sixBtn = document.getElementById("six");
+const oneBtn = document.getElementById("one");
+const twoBtn = document.getElementById("two");
+const threeBtn = document.getElementById("three");
+const zeroBtn = document.getElementById("zero");
+
+sevenBtn.value = 7;
+eightBtn.value = 8;
+nineBtn.value = 9;
+fourBtn.value = 4;
+fiveBtn.value = 5;
+sixBtn.value = 6;
+oneBtn.value = 1;
+twoBtn.value = 2;
+threeBtn.value = 3;
+zeroBtn.value = 0;
+
+const addBtn = document.getElementById("add");
+const subBtn = document.getElementById("sub");
+const multBtn = document.getElementById("mult");
+const divideBtn = document.getElementById("divide");
+const clearBtn = document.getElementById("clear");
+const equalBtn = document.getElementById("equal");
+
+addBtn.value = "+";
+subBtn.value = "-";
+multBtn.value = "*";
+divideBtn.value = "/";
+
+//event listeners
+sevenBtn.addEventListener("click", store);
+eightBtn.addEventListener("click", store);
+nineBtn.addEventListener("click", store);
+fourBtn.addEventListener("click", store);
+fiveBtn.addEventListener("click", store);
+sixBtn.addEventListener("click", store);
+oneBtn.addEventListener("click", store);
+twoBtn.addEventListener("click", store);
+threeBtn.addEventListener("click", store);
+zeroBtn.addEventListener("click", store);
+
+addBtn.addEventListener("click", storeOperator);
+subBtn.addEventListener("click", storeOperator);
+multBtn.addEventListener("click", storeOperator);
+divideBtn.addEventListener("click", storeOperator);
+equalBtn.addEventListener("click", finalOperator);
+clearBtn.addEventListener("click", clear);
+
+//functions
 const add = function (a, b) {
   result = a + b;
   result = Math.round(result * 100) / 100;
@@ -65,39 +122,6 @@ const operate = function (a, b, operatorSign) {
   }
 };
 
-const sevenBtn = document.getElementById("seven");
-const eightBtn = document.getElementById("eight");
-const nineBtn = document.getElementById("nine");
-const fourBtn = document.getElementById("four");
-const fiveBtn = document.getElementById("five");
-const sixBtn = document.getElementById("six");
-const oneBtn = document.getElementById("one");
-const twoBtn = document.getElementById("two");
-const threeBtn = document.getElementById("three");
-const zeroBtn = document.getElementById("zero");
-
-sevenBtn.value = 7;
-eightBtn.value = 8;
-nineBtn.value = 9;
-fourBtn.value = 4;
-fiveBtn.value = 5;
-sixBtn.value = 6;
-oneBtn.value = 1;
-twoBtn.value = 2;
-threeBtn.value = 3;
-zeroBtn.value = 0;
-
-sevenBtn.addEventListener("click", store);
-eightBtn.addEventListener("click", store);
-nineBtn.addEventListener("click", store);
-fourBtn.addEventListener("click", store);
-fiveBtn.addEventListener("click", store);
-sixBtn.addEventListener("click", store);
-oneBtn.addEventListener("click", store);
-twoBtn.addEventListener("click", store);
-threeBtn.addEventListener("click", store);
-zeroBtn.addEventListener("click", store);
-
 function store(e) {
   if (operatorSign === "") {
     if (a === result) {
@@ -128,35 +152,12 @@ function displayB(e) {
   screenText.textContent = b;
 }
 
-const addBtn = document.getElementById("add");
-const subBtn = document.getElementById("sub");
-const multBtn = document.getElementById("mult");
-const divideBtn = document.getElementById("divide");
-const clearBtn = document.getElementById("clear");
-const equalBtn = document.getElementById("equal");
-
-addBtn.value = "+";
-subBtn.value = "-";
-multBtn.value = "*";
-divideBtn.value = "/";
-
-addBtn.addEventListener("click", storeOperator);
-subBtn.addEventListener("click", storeOperator);
-multBtn.addEventListener("click", storeOperator);
-divideBtn.addEventListener("click", storeOperator);
-
-let operatorSign = "";
-
-console.log(operatorSign);
-
 function storeOperator(e) {
   operatorSign = e.target.value;
   a = Number(a);
   screenText.textContent = operatorSign;
   console.log(operatorSign);
 }
-
-equalBtn.addEventListener("click", finalOperator);
 
 function finalOperator(e) {
   if (operatorSign === "") {
@@ -176,8 +177,6 @@ function finalOperator(e) {
   }
 }
 
-clearBtn.addEventListener("click", clear);
-
 function clear(e) {
   a = "";
   b = "";
@@ -185,5 +184,3 @@ function clear(e) {
   screenText.textContent = 0;
   console.log(a);
 }
-
-const screenText = document.getElementById("screenDisplay");
