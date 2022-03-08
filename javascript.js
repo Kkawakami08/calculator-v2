@@ -46,14 +46,16 @@ const operate = function (a, b, operatorSign) {
   if (operatorSign === "+") {
     add(a, b);
     screenText.textContent = result;
+  } else if (operatorSign === "-") {
+    subtract(a, b);
+    screenText.textContent = result;
+  } else if (operatorSign === "*") {
+    multiply(a, b);
+    screenText.textContent = result;
+  } else if (operatorSign === "/") {
+    divide(a, b);
+    screenText.textContent = result;
   }
-  // } else if (operator === "subtract") {
-  //   return (result = subtract(a, b));
-  // } else if (operator === "multiply") {
-  //   return (result = multiply(a, b));
-  // } else if (operator === "divide") {
-  //   return (result = divide(a, b));
-  // }
 };
 
 const sevenBtn = document.getElementById("seven");
@@ -97,7 +99,7 @@ function store(e) {
     // a += e.target.value;
     // console.log(a);
     displayA(e);
-  } else {
+  } else if (operatorSign !== "") {
     let numberString = e.target.value.toString();
     b += numberString;
     console.log(b);
@@ -140,6 +142,7 @@ function storeOperator(e) {
   operatorSign = e.target.value;
   a = Number(a);
   screenText.textContent = operatorSign;
+  console.log(operatorSign);
 }
 
 clearBtn.addEventListener("click", finalOperator);
@@ -148,6 +151,14 @@ equalBtn.addEventListener("click", finalOperator);
 function finalOperator(e) {
   b = Number(b);
   operate(a, b, operatorSign);
+  console.log(a);
+  console.log(b);
+  a = "";
+  b = "";
+  operatorSign = "";
+  console.log(a);
+  console.log(b);
+  console.log(operatorSign);
 }
 
 const screenText = document.getElementById("screenDisplay");
