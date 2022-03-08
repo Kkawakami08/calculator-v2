@@ -2,6 +2,8 @@ let a = "";
 
 let b = "";
 let result = 0;
+console.log(a);
+console.log(b);
 
 const add = function (a, b) {
   result = a + b;
@@ -93,15 +95,15 @@ zeroBtn.addEventListener("click", store);
 
 function store(e) {
   if (operatorSign === "") {
-    if (a === "") {
+    if (a === result) {
+      a = "";
       let numberString = e.target.value.toString();
       a += numberString;
       console.log(a);
       // a += e.target.value;
       // console.log(a);
       displayA(e);
-    } else if (a !== "") {
-      a = "";
+    } else {
       let numberString = e.target.value.toString();
       a += numberString;
       console.log(a);
@@ -147,6 +149,7 @@ multBtn.addEventListener("click", storeOperator);
 divideBtn.addEventListener("click", storeOperator);
 
 let operatorSign = "";
+console.log(operatorSign);
 
 function storeOperator(e) {
   operatorSign = e.target.value;
