@@ -145,7 +145,6 @@ function storeOperator(e) {
   console.log(operatorSign);
 }
 
-clearBtn.addEventListener("click", finalOperator);
 equalBtn.addEventListener("click", finalOperator);
 
 function finalOperator(e) {
@@ -159,6 +158,16 @@ function finalOperator(e) {
   console.log(a);
   console.log(b);
   console.log(operatorSign);
+}
+
+clearBtn.addEventListener("click", clear);
+
+function clear(e) {
+  a = "";
+  b = "";
+  operatorSign = "";
+  screenText.textContent = 0;
+  console.log(a);
 }
 
 const screenText = document.getElementById("screenDisplay");
